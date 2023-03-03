@@ -1,0 +1,14 @@
+<response>
+    <code>00</code>
+    <data>
+        <nomorPembayaran>09101007022</nomorPembayaran>
+        <idTagihan>1220109101007022</idTagihan>
+        <nomorInduk>I1A007022</nomorInduk>
+        <nama>MUHAMMAD RIO REZEKI YANDA</nama>
+        <fakultas>KEDOKTERAN</fakultas>
+        <jurusan>Pendidikan Profesi Dokter</jurusan>
+        <strata>PR</strata>
+        <periode>20122</periode>
+        <angkatan>2011</angkatan>
+    </data>
+</response>
