@@ -1,8 +1,6 @@
 package xyz.nopalfi.ulmpaymentmanagement.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -11,7 +9,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -241,6 +238,14 @@ public class WebController {
         return "login";
     }
 
+    @GetMapping(value = "/sidebar")
+    public String sidebar() {
+        return "fragments/sidebar";
+    }
 
+    @GetMapping(value = "/test")
+    public String test() {
+        return "test";
+    }
 
 }
