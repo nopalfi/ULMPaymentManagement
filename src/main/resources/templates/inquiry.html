@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Payment - SpringBoot</title>
+    <title>Inquiry - SpringBoot</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}">
     <script th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
     <meta charset="UTF-8">
@@ -35,7 +35,7 @@
         <div class="nav-menu">
             <ul>
                 <li><a href="/"><span class="icon-home mr-3"></span>Dashboard</a></li>
-                <li class="active"><a href="/inqury"><span class="icon-search2 mr-3"></span>Inquiry</a></li>
+                <li class="active"><a href="/inquiry"><span class="icon-search2 mr-3"></span>Inquiry</a></li>
                 <li><a href="/payment"><span class="icon-notifications mr-3"></span>Payment</a></li>
                 <li><a href="/reversal"><span class="icon-location-arrow mr-3"></span>Reversal</a></li>
                 <li><a href="/logout"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
@@ -48,53 +48,61 @@
     <div class="site-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="row p-3 pb-md-4 mt-3 mx-auto my-auto" style="max-width: 750px; min-height: 100px;">
+                <div class="row p-3 pb-md-4 mt-3 mx-auto my-auto" style="max-width: 950px; min-height: 100px;">
                     <h1 class="display-4 fw-bold mx-auto my-auto mb-4">Inquiry</h1>
                     <div th:if="${inquiryDataXML != null}">
                         <div th:if="${inquiryDataXML.getCode() != '00'}">
                             <h2>Inquiry Failed</h2>
                             <p>Error: <span th:text="${inquiryDataXML.getMessage()}"></span></p>
                         </div>
-                        <div th:if="${inquiryDataXML.getCode() == '00'}">
+                        <div class="row" th:if="${inquiryDataXML.getCode() == '00'}">
                             <h2>Inquiry Success</h2>
                             <p>Data</p>
-                            <ul>
-                                <li>Nomor Pembayaran: <span
-                                        th:text="${inquiryDataXML.getData().getNomorPembayaran()}"></span></li>
-                                <li>ID Tagihan: <span th:text="${inquiryDataXML.getData().getIdTagihan()}"></span></li>
-                                <li>Nomor Induk: <span th:text="${inquiryDataXML.getData().getNomorInduk()}"></span>
-                                </li>
-                                <li>Nama: <span th:text="${inquiryDataXML.getData().getNama()}"></span></li>
-                                <li>Fakultas: <span th:text="${inquiryDataXML.getData().getFakultas()}"></span></li>
-                                <li>Jurusan: <span th:text="${inquiryDataXML.getData().getJurusan()}"></span></li>
-                                <li>Strata: <span th:text="${inquiryDataXML.getData().getStrata()}"></span></li>
-                                <li>Periode: <span th:text="${inquiryDataXML.getData().getPeriode()}"></span></li>
-                                <li>Angkatan: <span th:text="${inquiryDataXML.getData().getAngkatan()}"></span></li>
-                                <li>Total Nominal: <span th:text="${inquiryDataXML.getData().getTotalNominal()}"></span>
-                                </li>
-                            </ul>
+                            <div class="col">
+                                <dl class="row">
+                                    <dt class="col-sm-3">Nomor Pembayaran:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNomorPembayaran()}"></dd>
+                                    <dt class="col-sm-3">ID Tagihan:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getIdTagihan()}"></dd>
+                                    <dt class="col-sm-3">Nomor Induk:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNomorInduk()}"></dd>
+                                    <dt class="col-sm-3">Nama:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNama()}"></dd>
+                                    <dt class="col-sm-3">Fakultas:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getFakultas()}"></dd>
+                                    <dt class="col-sm-3">Jurusan:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getJurusan()}"></dd>
+                                    <dt class="col-sm-3">Strata:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getStrata()}"></dd>
+                                    <dt class="col-sm-3">Periode:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getPeriode()}"></dd>
+                                    <dt class="col-sm-3">Angkatan:
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getAngkatan()}"></dd>
+                                    <dt class="col-sm-3">Total Nominal:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getTotalNominal()}"></dd>
+                                    </dt>
+                                </dl>
+                            </div>
                             <p>Details</p>
-                            <ul>
-                                <li>Kode Transaksi: <span
-                                        th:text="${inquiryDataXML.getDetails().getItem().getKodeTransaksi()}"></span>
-                                </li>
-                                <li>Deskripsi Pendek: <span
-                                        th:text="${inquiryDataXML.getDetails().getItem().getDeskripsiPendek()}"></span>
-                                </li>
-                                <li>Deskripsi Panjang: <span
-                                        th:text="${inquiryDataXML.getDetails().getItem().getDeskripsiPanjang()}"></span>
-                                </li>
-                                <li>Nominal Transaksi: <span
-                                        th:text="${inquiryDataXML.getDetails().getItem().getNominalTransaksi()}"></span>
-                                </li>
-                            </ul>
+                            <div class="col">
+                                <dl class="row">
+                                    <dt class="col-sm-3">Kode Transaksi:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getDetails().getItem().getKodeTransaksi()}"></dd>
+                                    <dt class="col-sm-3">Deskripsi Pendek:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getDetails().getItem().getDeskripsiPendek()}"></dd>
+                                    <dt class="col-sm-3">Deskripsi Panjang:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getDetails().getItem().getDeskripsiPanjang()}"></dd>
+                                    <dt class="col-sm-3">Nominal Transaksi:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getDetails().getItem().getNominalTransaksi()}"></dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div th:if="${inquiryDataXML == null}">
                         <form method="post">
-                            <div class="mb-3">
-                                <label for="kodeBank" class="form-label">Kode Bank:</label>
-                                <select name="kodeBank" id="kodeBank" class="form-select">
+                            <div class="row mb-3">
+                                <label for="kodeBank" class="col-md-3 col-form-label">Kode Bank:</label>
+                                <select name="kodeBank" id="kodeBank" class="col form-select">
                                     <option value="blank" selected>---</option>
                                     <option value="BRI">BRI</option>
                                     <option value="BCA">BCA</option>
@@ -103,9 +111,9 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="kodeChannel" class="form-label">Kode Channel:</label>
-                                <select name="kodeChannel" id="kodeChannel" class="form-select">
+                            <div class="row mb-3">
+                                <label for="kodeChannel" class="col-md-3 col-form-label">Kode Channel:</label>
+                                <select name="kodeChannel" id="kodeChannel" class="col form-select">
                                     <option value="blank" selected>---</option>
                                     <option value="ATM">ATM</option>
                                     <option value="Mobile Banking">Mobile Banking</option>
@@ -113,24 +121,25 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="kodeTerminal" class="form-label">Kode Terminal:</label>
-                                <input type="text" id="kodeTerminal" name="kodeTerminal" class="form-control">
+                            <div class="row mb-3">
+                                <label for="kodeTerminal" class="col-md-3 col-form-label">Kode Terminal:</label>
+                                <input type="text" id="kodeTerminal" name="kodeTerminal" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="nomorPembayaran" class="form-label">Nomor Pembayaran:</label>
-                                <input type="text" id="nomorPembayaran" name="nomorPembayaran" class="form-control">
+                            <div class="row mb-3">
+                                <label for="nomorPembayaran" class="col-md-3 col-form-label">Nomor Pembayaran:</label>
+                                <input type="text" id="nomorPembayaran" name="nomorPembayaran" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="tanggalTransaksi" class="form-label">Tanggal Transaksi:</label>
-                                <input type="date" id="tanggalTransaksi" name="tanggalTransaksi" class="form-control">
+                            <div class="row mb-3">
+                                <label for="tanggalTransaksi" class="col-md-3 col-form-label">Tanggal Transaksi:</label>
+                                <input type="date" id="tanggalTransaksi" name="tanggalTransaksi"
+                                       class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="idTransaksi" class="form-label">ID Transaksi:</label>
-                                <input type="text" id="idTransaksi" name="idTransaksi" class="form-control">
+                            <div class="row mb-3">
+                                <label for="idTransaksi" class="col-md-3 col-form-label">ID Transaksi:</label>
+                                <input type="text" id="idTransaksi" name="idTransaksi" class="col form-control">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>

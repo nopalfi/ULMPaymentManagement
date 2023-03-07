@@ -55,29 +55,38 @@
                             <h2>Payment Failed</h2>
                             <p>Error: <span th:text="${inquiryDataXML.getMessage()}"></span></p>
                         </div>
-                        <div th:if="${inquiryDataXML.getCode() == '00'}">
+                        <div class="row" th:if="${inquiryDataXML.getCode() == '00'}">
                             <h2>Payment Success</h2>
                             <p>Data</p>
-                            <ul>
-                                <li>Nomor Pembayaran: <span
-                                        th:text="${inquiryDataXML.getData().getNomorPembayaran()}"></span></li>
-                                <li>ID Tagihan: <span th:text="${inquiryDataXML.getData().getIdTagihan()}"></span></li>
-                                <li>Nomor Induk: <span th:text="${inquiryDataXML.getData().getNomorInduk()}"></span>
-                                </li>
-                                <li>Nama: <span th:text="${inquiryDataXML.getData().getNama()}"></span></li>
-                                <li>Fakultas: <span th:text="${inquiryDataXML.getData().getFakultas()}"></span></li>
-                                <li>Jurusan: <span th:text="${inquiryDataXML.getData().getJurusan()}"></span></li>
-                                <li>Strata: <span th:text="${inquiryDataXML.getData().getStrata()}"></span></li>
-                                <li>Periode: <span th:text="${inquiryDataXML.getData().getPeriode()}"></span></li>
-                                <li>Angkatan: <span th:text="${inquiryDataXML.getData().getAngkatan()}"></span></li>
-                            </ul>
+                            <div class="col">
+                                <dl class="row">
+                                    <dt class="col-sm-3">Nomor Pembayaran:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNomorPembayaran()}"></dd>
+                                    <dt class="col-sm-3">ID Tagihan:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getIdTagihan()}"></dd>
+                                    <dt class="col-sm-3">Nomor Induk:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNomorInduk()}"></dd>
+                                    <dt class="col-sm-3">Nama:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getNama()}"></dd>
+                                    <dt class="col-sm-3">Fakultas:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getFakultas()}"></dd>
+                                    <dt class="col-sm-3">Jurusan:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getJurusan()}"></dd>
+                                    <dt class="col-sm-3">Strata:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getStrata()}"></dd>
+                                    <dt class="col-sm-3">Periode:</dt>
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getPeriode()}"></dd>
+                                    <dt class="col-sm-3">Angkatan:
+                                    <dd class="col-sm-9" th:text="${inquiryDataXML.getData().getAngkatan()}"></dd>
+                                </dl>
+                            </div>
                         </div>
                     </div>
                     <div th:if="${inquiryDataXML == null}">
                         <form method="post">
-                            <div class="mb-3">
-                                <label for="kodeBank" class="form-label">Kode Bank:</label>
-                                <select name="kodeBank" id="kodeBank" class="form-select">
+                            <div class="row mb-3">
+                                <label for="kodeBank" class="col-md-3 col-form-label">Kode Bank:</label>
+                                <select name="kodeBank" id="kodeBank" class="col form-select">
                                     <option value="blank" selected>---</option>
                                     <option value="BRI">BRI</option>
                                     <option value="BCA">BCA</option>
@@ -85,9 +94,10 @@
                                     <option value="BNI">BNI</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
-                                <label for="kodeChannel" class="form-label">Kode Channel:</label>
-                                <select name="kodeChannel" id="kodeChannel" class="form-select">
+
+                            <div class="row mb-3">
+                                <label for="kodeChannel" class="col-md-3 col-form-label">Kode Channel:</label>
+                                <select name="kodeChannel" id="kodeChannel" class="col form-select">
                                     <option value="blank" selected>---</option>
                                     <option value="ATM">ATM</option>
                                     <option value="Mobile Banking">Mobile Banking</option>
@@ -95,45 +105,46 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="kodeTerminal" class="form-label">Kode Terminal:</label>
-                                <input type="text" id="kodeTerminal" name="kodeTerminal" class="form-control">
+                            <div class="row mb-3">
+                                <label for="kodeTerminal" class="col-md-3 col-form-label">Kode Terminal:</label>
+                                <input type="text" id="kodeTerminal" name="kodeTerminal" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="nomorPembayaran" class="form-label">Nomor Pembayaran:</label>
-                                <input type="text" id="nomorPembayaran" name="nomorPembayaran" class="form-control">
+                            <div class="row mb-3">
+                                <label for="nomorPembayaran" class="col-md-3 col-form-label">Nomor Pembayaran:</label>
+                                <input type="text" id="nomorPembayaran" name="nomorPembayaran" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="tanggalTransaksi" class="form-label">Tanggal Transaksi:</label>
-                                <input type="date" id="tanggalTransaksi" name="tanggalTransaksi" class="form-control">
+                            <div class="row mb-3">
+                                <label for="tanggalTransaksi" class="col-md-3 col-form-label">Tanggal Transaksi:</label>
+                                <input type="date" id="tanggalTransaksi" name="tanggalTransaksi"
+                                       class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="idTransaksi" class="form-label">ID Transaksi:</label>
-                                <input type="text" id="idTransaksi" name="idTransaksi" class="form-control">
+                            <div class="row mb-3">
+                                <label for="idTransaksi" class="col-md-3 col-form-label">ID Transaksi:</label>
+                                <input type="text" id="idTransaksi" name="idTransaksi" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="idTagihan" class="form-label">ID Tagihan:</label>
-                                <input type="text" id="idTagihan" name="idTagihan" class="form-control">
+                            <div class="row mb-3">
+                                <label for="idTagihan" class="col-md-3 col-form-label">ID Tagihan:</label>
+                                <input type="text" id="idTagihan" name="idTagihan" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="nomorJurnalPembukuan" class="form-label">Nomor Jurnal Pembukuan:</label>
+                            <div class="row mb-3">
+                                <label for="nomorJurnalPembukuan" class="col-md-3 col-form-label">Nomor Jurnal Pembukuan:</label>
                                 <input type="text" id="nomorJurnalPembukuan" name="nomorJurnalPembukuan"
-                                       class="form-control">
+                                       class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="daftarPembayaran" class="form-label">Daftar Pembayaran:</label>
-                                <input type="text" id="daftarPembayaran" name="daftarPembayaran" class="form-control">
+                            <div class="row mb-3">
+                                <label for="daftarPembayaran" class="col-md-3 col-form-label">Daftar Pembayaran:</label>
+                                <input type="text" id="daftarPembayaran" name="daftarPembayaran" class="col form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="totalNominal" class="form-label">Total Nominal:</label>
-                                <input type="text" id="totalNominal" name="totalNominal" class="form-control">
+                            <div class="row mb-3">
+                                <label for="totalNominal" class="col-md-3 col-form-label">Total Nominal:</label>
+                                <input type="text" id="totalNominal" name="totalNominal" class="col form-control">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>

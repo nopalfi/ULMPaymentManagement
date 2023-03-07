@@ -10,7 +10,7 @@
     </parent>
     <groupId>xyz.nopalfi</groupId>
     <artifactId>ULMPaymentManagement</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>ULMPaymentManagement</name>
     <description>ULMPaymentManagement</description>
     <properties>
